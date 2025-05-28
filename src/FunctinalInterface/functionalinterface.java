@@ -2,10 +2,15 @@ package FunctinalInterface;
 @FunctionalInterface
 public interface functionalinterface {
 	
-	int operate(int a, int b);
+	void greet(String name); 
+	
+	default void sayGoodbye(String name) {
+        System.out.println("Goodbye, " + name + "!");
+    }	
 	
 	
-	
-	
+	 static void sayHelloWorld() {
+	        System.out.println("tawade");
+	    }
 
 }
