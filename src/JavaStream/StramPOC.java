@@ -12,22 +12,22 @@ public class StramPOC {
 		
 		List<Employee> employees = Arrays.asList(
 	            new Employee(101, "John", "HR", 60000),
-	            new Employee(102, "Jane", "IT", 80000),
-	            new Employee(103, "Jack", "IT", 75000),
-	            new Employee(104, "Jill", "Finance", 65000),
-	            new Employee(105, "Joe", "HR", 58000)
+	            new Employee(102, "Ashish", "IT", 80000),
+	            new Employee(103, "Sagar", "IT", 75000),
+	            new Employee(104, "utkarsh", "Finance", 65000),
+	            new Employee(105, "saurabh", "HR", 58000)
 	        );
 
 	        // 1️ Filter employees with salary > 60000
 	        List<Employee> highEarners = employees.stream()
 	            .filter(emp -> emp.getSalary() > 60000)
-	            .collect(toList());
+	            .collect(Collectors.toList());
 	        System.out.println("High Earners: " + highEarners);
 
 	        // 2  Get names of all employees (map)
 	        List<String> names = employees.stream()
 	            .map(Employee::getName)
-	            .collect(toList());
+	            .collect(Collectors.toList());
 	        System.out.println("Employee Names: " + names);
 
 	        // 3️ Find total salary of all employees (reduce)
@@ -38,12 +38,12 @@ public class StramPOC {
 
 	        // 4️ Group employees by department
 	        Map<String, List<Employee>> deptGroup = employees.stream()
-	            .collect(groupingBy(Employee::getDepartment));
+	            .collect(Collectors.groupingBy(Employee::getDepartment));
 	        System.out.println("Grouped by Department: " + deptGroup);
 
 	        // 5️ Average salary per department
 	        Map<String, Double> avgDeptSalary = employees.stream()
-	            .collect(groupingBy(Employee::getDepartment, averagingDouble(Employee::getSalary)));
+	            .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.averagingDouble(Employee::getSalary)));
 	        System.out.println("Avg Salary by Dept: " + avgDeptSalary);
 
 	        // 6️ Highest salary employee
