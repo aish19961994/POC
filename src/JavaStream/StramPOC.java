@@ -52,7 +52,7 @@ public class StramPOC {
 	            .orElse(null);
 	        System.out.println("Highest Earner: " + maxSalaryEmp);
 
-	        // 7️⃣ FlatMap example – skills across employees
+	        // 7️ FlatMap example – skills across employees
 	        List<List<String>> skillLists = Arrays.asList(
 	            Arrays.asList("Java", "Spring"),
 	            Arrays.asList("Python", "Django"),
