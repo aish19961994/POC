@@ -12,7 +12,7 @@ public class simple {
 		List<String> names = Arrays.asList("Ashish", "Neha", "Amit");
 		
 		
-		
+		//1>
 		List<Integer> evenNumbers = numbers.stream()
                 .filter(n -> n % 2 == 0)
                 .collect(Collectors.toList());
@@ -20,7 +20,7 @@ public class simple {
          System.out.println("Even numbers: " + evenNumbers);  
          
          
-         
+         //2>
            List<String> upper = names.stream()
                  .map(String::toUpperCase)
                  .collect(Collectors.toList());
@@ -28,12 +28,12 @@ public class simple {
            System.out.println("Uppercase names: " + upper); 
            
            
-           
+          // 3>
            long count = names.stream().count();
 
            System.out.println("Total elements: " + count); 
            
-           
+           //4>
            List<String> filtered = names.stream()
                    .filter(name -> name.startsWith("A"))
                    .collect(Collectors.toList());
@@ -41,7 +41,7 @@ public class simple {
            System.out.println("Names starting with 'A': " + filtered); 
            
            
-           
+           //5>
            Optional<Integer> max = numbers.stream()
                    .max(Integer::compareTo);
 

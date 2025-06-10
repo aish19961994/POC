@@ -1,8 +1,10 @@
 package CollectionwithStream;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import JavaStream.Employee;
@@ -14,26 +16,27 @@ public class StreamModerateExamples {
 
         // Question 1: Group strings by length
         List<String> words = Arrays.asList("Java", "Spring", "Stream", "API", "JPA");
+        
         Map<Integer, List<String>> groupedByLength = words.stream()
                 .collect(Collectors.groupingBy(String::length));
-        System.out.println("1️⃣ Grouped by length: " + groupedByLength);
+        System.out.println(" Grouped by length: " + groupedByLength);
 
 
         // Employee List for Q2
-        List<StreamModerateExamples> employees = Arrays.asList(
-            new StreamModerateExamples(1, "Ashish", 32, 80000, "IT"),
-            new StreamModerateExamples(2, "Neha", 28, 70000, "HR"),
-            new StreamModerateExamples(3, "Amit", 31, 75000, "Finance"),
-            new StreamModerateExamples(4, "Sneha", 26, 72000, "IT"),
-            new StreamModerateExamples(5, "Rahul", 35, 95000, "Admin")
+        List<Moderate> employees = Arrays.asList(
+            new Moderate(1, "Ashish", 32, 80000, "IT"),
+            new Moderate(2, "Neha", 28, 70000, "HR"),
+            new Moderate(3, "Amit", 31, 75000, "Finance"),
+            new Moderate(4, "Sneha", 26, 72000, "IT"),
+            new Moderate(5, "Rahul", 35, 95000, "Admin")
         );
 
         // Question 2: Find names of employees older than 30
         List<String> over30 = employees.stream()
                 .filter(e -> e.getAge() > 30)
-                .map(StreamModerateExamples::getName)
+                .map(Moderate::getName)
                 .collect(Collectors.toList());
-        System.out.println("2️⃣ Employees older than 30: " + over30);
+        System.out.println(" Employees older than 30: " + over30);
 
 
         // Question 3: Remove duplicate elements from a list
@@ -48,7 +51,7 @@ public class StreamModerateExamples {
         List<String> sortedReverse = names.stream()
                 .sorted(Comparator.reverseOrder())
                 .collect(Collectors.toList());
-        System.out.println("4️⃣ Sorted in reverse: " + sortedReverse);
+        System.out.println(" Sorted in reverse: " + sortedReverse);
 
 
         // Question 5: Find the second highest number
@@ -57,7 +60,7 @@ public class StreamModerateExamples {
                 .sorted(Comparator.reverseOrder())
                 .skip(1)
                 .findFirst();
-        secondHighest.ifPresent(val -> System.out.println("5️⃣ Second highest number: " + val));
+        secondHighest.ifPresent(val -> System.out.println("Second highest number: " + val));
     }
 
 }
